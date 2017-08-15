@@ -9,7 +9,10 @@
     "angular-jwt": "^0.1.9",
     "auth0.js": "^8.4.0",
     "angular-lock": "^2.0.1",
-    "components-font-awesome": "^4.7.0"
+    "components-font-awesome": "^4.7.0",
+    "angular-google-maps": "^2.4.1",
+    "angular-xregexp": "^1.0.0",
+    "angular-block-ui": "^0.2.2"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"

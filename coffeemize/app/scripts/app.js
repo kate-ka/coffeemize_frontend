@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('coffeemizeApp', ['auth0.lock', 'angular-jwt', 'ui.router'])
+    .module('coffeemizeApp', ['auth0.lock', 'angular-jwt', 'ui.router', 'uiGmapgoogle-maps', 'angularXRegExp', 'blockUI'])
     .config(config);
 
     config.$inject = ['$stateProvider', '$httpProvider', 'lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$urlRouterProvider'];
@@ -12,8 +12,8 @@
 
       // Initialization for the Lock widget
       lockProvider.init({
-        clientID: AUTH0_CLIENT_ID,
-        domain: AUTH0_DOMAIN,
+        clientID: SETTINGS.AUTH0_CLIENT_ID,
+        domain: SETTINGS.AUTH0_DOMAIN,
         options: {
             auth: {
                 params: {scope: 'openid email picture'}
@@ -57,7 +57,7 @@
        })
        .state({
          name: 'coffee',
-         url: '/coffee',
+         url: '/coffee?city',
          controller: 'coffeeController as vm',
          templateUrl: 'views/coffee.html'
        })
