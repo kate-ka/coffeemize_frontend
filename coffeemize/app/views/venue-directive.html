@@ -1,0 +1,56 @@
+<div class="jumbotron">
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="place-avatar">
+        <img class="avatar img-rounded img-responsive"
+             ng-src="{{coffeePlaceData.avatar ? coffeePlaceData.avatar :
+             'http://127.0.0.1:8000/media/coffee_places/cup-of-drink_318-107227.jpg'}}">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="place-name"><h5>{{coffeePlaceData.name}}</h5></div>
+      <div class="place-category text-muted">{{coffeePlaceData.category}}</div>
+    </div>
+    <div class="col-md-4">
+      <div class="rating" style="font-size: 4rem; color: #1063ff;">{{coffeePlaceData.rating}}</div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <ul>
+
+        <li>{{coffeePlaceData.url}}</li>
+        <li>{{coffeePlaceData.phone}}</li>
+
+        <li>{{coffeePlaceData.price}}</li>
+        <li>{{coffeePlaceData.hours}}</li>
+
+        <li><a ng-href="{{coffeePlaceData.tips_url}}">{{coffeePlaceData.tips}}</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+      <div class="place-img">
+        <img ng-src="{{coffeePlaceData.image}}">
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+      <ui-gmap-google-map center='map.center' zoom='map.zoom'  ng-if="map.center.longitude">
+        <ui-gmap-marker idKey="1" coords="map.marker.coords" ng-if="map.marker.coords.longitude"></ui-gmap-marker>
+      </ui-gmap-google-map>
+      <address style="padding: 10px;">
+        {{coffeePlaceData.address}}
+
+      </address>
+    </div>
+  </div>
+</div>
+
+
+
+

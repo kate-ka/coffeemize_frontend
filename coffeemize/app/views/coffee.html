@@ -1,56 +1,15 @@
-<div class="jumbotron">
-  <div class="row">
-    <div class="col-md-5 col-sm-12 col-xs-12">
-      <div class="place-avatar">
-        <img class="avatar"
-             ng-src="{{vm.coffeePlaceData.avatar ? vm.coffeePlaceData.avatar : 'http://127.0.0.1:8000/media/coffee_places/cup-of-drink_318-107227.jpg'}}">
-      </div>
+<venue-directive coffee-place-data="vm.coffeePlaceData"></venue-directive>
 
-      <div class="place-name"><h5>{{vm.coffeePlaceData.name}}</h5></div>
-      <div class="rating">{{vm.coffeePlaceData.rating}}</div>
-    </div>
-    <div class="place-category">{{vm.coffeePlaceData.category}}</div>
-    <div class="col-md-7 col-sm-12 col-xs-12">
-      <ul>
-
-        <li>{{vm.coffeePlaceData.url}}</li>
-        <li>{{vm.coffeePlaceData.phone}}</li>
-        <li>{{vm.coffeePlaceData.address}}</li>
-        <li>{{vm.coffeePlaceData.price}}</li>
-        <li>{{vm.coffeePlaceData.hours}}</li>
-
-        <li><a ng-href="{{vm.coffeePlaceData.tips_url}}">{{vm.coffeePlaceData.tips}}</a></li>
-      </ul>
-    </div>
-
-  </div>
-  <div class="row">
-    <div class="col-md-6 col-sm-12 col-xs-12">
-      <div class="place-img">
-        <img ng-src="{{vm.coffeePlaceData.image}}">
-      </div>
-    </div>
-    <!--<div class="col-md-6 col-sm-12 col-xs-12">-->
-    <!--<iframe ng-src="{{vm.iframe.src| trustedFilter}}" allowfullscreen>-->
-    <!--</iframe>-->
-    <ui-gmap-google-map center='vm.map.center' zoom='vm.map.zoom'>
-      <ui-gmap-marker idKey="1" coords="vm.map.marker.coords"></ui-gmap-marker>
-    </ui-gmap-google-map>
-
-  </div>
-</div>
-
-<div class="row">
+<div class="row" style="padding: 2rem;">
   <div class="col-md-4 col-sm-4 col-xs-4">
-    <input class="btn" type="button" ng-click="vm.changeDataGoing()" value="Going">
+    <button type="button" class="btn btn-primary" ng-click="vm.changeDataGoing()">I'm Going</button>
   </div>
   <div class="col-md-4 col-sm-4 col-xs-4">
-    <input class="btn" type="button" ng-click="vm.changeDataLater()" value="Later">
+    <button type="button" class="btn btn-primary center-block" ng-click="vm.changeDataLater()">Later</button>
 
   </div>
   <div class="col-md-4 col-sm-4 col-xs-4">
-    <input class="btn" type="button" ng-click="vm.changeDataNever()" value="Never">
-
+    <button type="button" class="btn btn-primary pull-right" ng-click="vm.changeDataNever()">Never</button>
   </div>
 </div>
 

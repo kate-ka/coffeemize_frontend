@@ -1,47 +1,48 @@
-<div class="jumbotron">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <h2 class="text-center" ng-if="!isAuthenticated"><img src="http://127.0.0.1:8000/media/coffee-cup-hi.png"></h2>
-      <div class="text-center" ng-if="!isAuthenticated">
-        <p>If you are looking for coffee, please <a class="sign-in-link" ng-click="authService.login()">sign up</a>
-          using
-          your social engine</p>
-      </div>
-      <div class="text-center" ng-if="isAuthenticated">
-        <div class="text-center">
-          <img class="profile-pic" ng-src="{{ profile.picture }}">
-        </div>
-        <h2>Welcome, {{ profile.nickname }}</h2>
-
-      </div>
-    </div>
-  </div>
-  <div class="row proposal-row" ng-if="isAuthenticated">
-    <div class="col-md-6">
-      <form name="caffeinateForm" novalidate class="caffeinate-form"
-            ng-submit="search_coffee_places(caffeinateForm.$valid)">
-        <label for="caffeinate-me">Do you want a cup of coffee?</label>
-        <div id="coffee-search-input">
-
-          <div class="input-group col-md-12">
-            <input name='city' ng-model="search_form.city" ng-pattern="regex" id="caffeinate-me" type="text"
-                   class="form-control input-lg" required/>
-
-            <span class="input-group-btn">
-            <button class="btn btn-info btn-lg" type="submit" ng-disabled="caffeinateForm.$invalid">
-              <i class="fa fa-2x fa-coffee" aria-hidden="true"></i>Caffeinate Me
-            </button>
-          </span>
-
+<div class="row">
+  <div class="col-md-12">
+    <div class="jumbotron">
+      <div class="row" ng-if="!isAuthenticated">
+        <div class="col-md-6 col-md-offset-3">
+          <h2 class="text-center"><img src="http://127.0.0.1:8000/media/coffee-cup-hi.png"></h2>
+          <div class="text-center">
+            <p>If you are looking for coffee, please <a class="sign-in-link" ng-click="authService.login()">sign up</a>
+              using
+              your social engine</p>
           </div>
 
         </div>
-        <p ng-show="caffeinateForm.city.$invalid && !caffeinateForm.name.$pristine" class="help-block"> Please enter a
-          valid city name </p>
+      </div>
+      <div class="row proposal-row" ng-if="isAuthenticated">
+        <div class="col-md-10 col-md-offset-1">
 
-      </form>
+          <form name="caffeinateForm" novalidate class="caffeinate-form"
+                ng-submit="search_coffee_places(caffeinateForm.$valid)">
+            <label for="caffeinate-me">Do you want a cup of coffee?</label>
+            <div id="coffee-search-input">
+
+              <div class="input-group">
+                <input name='city' ng-model="search_form.city" ng-pattern="regex" id="caffeinate-me" type="text"
+                       class="form-control input-lg" required/>
+
+                <span class="input-group-btn">
+              <button class="btn btn-info btn-lg" type="submit" ng-disabled="caffeinateForm.$invalid">
+                <i class="fa fa-2x fa-coffee" aria-hidden="true"></i>Caffeinate Me
+              </button>
+            </span>
+
+              </div>
+
+            </div>
+            <p ng-show="caffeinateForm.city.$invalid && !caffeinateForm.name.$pristine" class="help-block"> Please enter
+              a valid city name </p>
+
+          </form>
+
+        </div>
+
+      </div>
+
+
     </div>
-
   </div>
-
 </div>

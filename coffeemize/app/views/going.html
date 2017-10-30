@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-12 col-xs-12 col-sm-12">
+    <h4>Good Choice, {{ profile.nickname }}.</h4>
+    <h5>You are going to visit :</h5>
+  </div>
+</div>
+
+<venue-directive coffee-place-data="vm.statistics"></venue-directive>
+
+<div class="row" style="padding: 10px;">
+  <div ng-if="vm.statistics.first_visit" style="font-size: 1.5rem"> It's your first visit</div>
+  <div ng-if="!vm.statistics.first_visit" style="font-size: 1.5rem">It's not your first visit. You seem to love this place!</div>
+  <div style="font-size: 1.5rem"> Visitors Number: {{vm.statistics.visitors_number}}</div>
+  <div style="font-size: 1.5rem"> {{vm.statistics.said_never}} visitors said "Never"</div>
+</div>
+
+

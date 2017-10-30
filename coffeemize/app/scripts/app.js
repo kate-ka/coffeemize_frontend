@@ -49,17 +49,17 @@
          controller: 'loginController',
          templateUrl: 'views/login.html'
       })
-       .state( {
-         name: 'ping',
-         url: '/ping',
-         controller: 'pingController',
-         templateUrl: 'views/ping.html'
-       })
        .state({
          name: 'coffee',
          url: '/coffee?city',
          controller: 'coffeeController as vm',
          templateUrl: 'views/coffee.html'
+       })
+       .state({
+         name: 'final',
+         url: '/place/:placeId',
+         controller: 'FinalCtrl as vm',
+         templateUrl: 'views/going.html'
        })
     }
 

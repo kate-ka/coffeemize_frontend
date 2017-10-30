@@ -1,17 +1,23 @@
-'use strict';
+(function() {
 
-/**
- * @ngdoc function
- * @name coffeemizeApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the coffeemizeApp
- */
-angular.module('coffeemizeApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  'use strict';
+
+  angular
+    .module('coffeemizeApp')
+    .controller('MainCtrl', MainCtrl);
+
+    MainCtrl.$inject = ['$scope', 'authService', 'authManager'];
+
+    function MainCtrl($scope, authService, authManager) {
+
+      // Set the user profile when the page is refreshed
+      $scope.profile = authService.userProfile;
+      // Listen for the user profile being set when the user
+      // logs in and update it in the view
+      $scope.$on('userProfileSet', function(event, userProfile) {
+        $scope.profile = userProfile;
+      });
+    }
+
+
+})();
