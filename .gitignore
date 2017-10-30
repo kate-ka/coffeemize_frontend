@@ -3,5 +3,5 @@ dist
 coffeemize/.tmp
 coffeemize/.sass-cache
 coffeemize/bower_components
-.idea/*
+.idea/
 .DS_Store
