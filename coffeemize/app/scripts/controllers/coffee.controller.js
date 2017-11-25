@@ -24,7 +24,7 @@
         going: null
       };
       var city = $stateParams.city;
-      var randomCoffeeUrl = 'http://127.0.0.1:8000/api-v1/random_coffee_place/?city=' + city;
+      var randomCoffeeUrl = window.SETTINGS.API_URL + '/api-v1/random_coffee_place/?city=' + city;
 
 
       var promise = $http({
@@ -53,7 +53,7 @@
 
     function sendUserChoice() {
       if (!vm.coffeePlaceData.suggestion) {
-        var coffeeUrl = 'http://127.0.0.1:8000/api-v1/userplaces/';
+        var coffeeUrl = window.SETTINGS.API_URL + '/api-v1/userplaces/';
         vm.data.coffee_place = vm.coffeePlaceData.id;
 
         var promise = $http({
@@ -66,7 +66,7 @@
         });
       }
       else {
-        var coffeeUrl = 'http://127.0.0.1:8000/api-v1/suggestion/' + vm.coffeePlaceData.suggestion + '/';
+        var coffeeUrl = window.SETTINGS.API_URL + '/api-v1/suggestion/' + vm.coffeePlaceData.suggestion + '/';
 
         var promise = $http({
           method: 'PATCH',
@@ -97,8 +97,6 @@
     };
     vm.changeDataGoing = function () {
       vm.data.going = true;
-      vm.data.show_later = false;
-      vm.data.never_show = false;
       sendUserChoice();
       $state.go('final', {'placeId': vm.coffeePlaceData.id});
     }

@@ -8,8 +8,7 @@
 <venue-directive coffee-place-data="vm.statistics"></venue-directive>
 
 <div class="row" style="padding: 10px;">
-  <div ng-if="vm.statistics.first_visit" style="font-size: 1.5rem"> It's your first visit</div>
-  <div ng-if="!vm.statistics.first_visit" style="font-size: 1.5rem">It's not your first visit. You seem to love this place!</div>
+  <div style="font-size: 1.5rem"> It's your {{vm.statistics.user_visits_count}} visit</div>
   <div style="font-size: 1.5rem"> Visitors Number: {{vm.statistics.visitors_number}}</div>
   <div style="font-size: 1.5rem"> {{vm.statistics.said_never}} visitors said "Never"</div>
 </div>

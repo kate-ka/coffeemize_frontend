@@ -14,7 +14,7 @@
       var placeId = $stateParams.placeId;
 
       function getUserChoice(place) {
-      var statisticsUrl = 'http://127.0.0.1:8000/api-v1/place/' + place + '/statistics';
+      var statisticsUrl = window.SETTINGS.API_URL + '/api-v1/place/' + place + '/statistics';
         var statisticsPromise = $http({
           method: 'GET',
           url: statisticsUrl,
